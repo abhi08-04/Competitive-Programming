@@ -16,17 +16,18 @@
 
         int find_set(int node) { return elementIn[node]; }
 
-        void unite(int u, int v) {
+        bool unite(int u, int v) {
 
             int setx = find_set(u);
             int sety = find_set(v);
 
-            if(setx == sety) return;
+            if(setx == sety) return false;
 
             if (customSet[setx].size() < customSet[sety].size()) swap(setx, sety);
             for (auto ele : customSet[sety]) {
                 elementIn[ele] = setx;
                 customSet[setx].insert(ele);
+                return true;
             }
             customSet[sety].clear();
         }
