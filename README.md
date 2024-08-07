@@ -1,2 +1,2 @@
 # Competitive-Programming
-Cantains Templates of Standard Algorithms and Data Structures
+Contains Templates of Standard Algorithms and Data Structures
