@@ -6,7 +6,7 @@ using namespace std;
 
 auto suffix_array = [&](const string &s) -> vector<int> {
 	int N = s.length(), stp, cnt;
-	vector<vector<int>> P(17, vector<int>(N));
+	vector<vector<int>> P(21, vector<int>(N));
 	vector<int> suffixArr(N);
 
 	struct entry {
