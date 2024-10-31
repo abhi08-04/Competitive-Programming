@@ -1,0 +1,31 @@
+class comparator {
+public : bool operator()(pii &p1, pii &p2) {
+        return p1.ss > p2.ss;
+    }
+};
+
+
+
+auto dijkstra = [&](int src, vector<vector<pii>> &adj) {
+        vector<int> dis(n, INF), vis(n, 0);
+        dis[src] = 0;
+ 
+        priority_queue<pii, vector<pii>, comparator> pq;
+        pq.push({src, 0});
+        while (!pq.empty()) {
+            auto x = pq.top();
+            pq.pop();
+            int u = x.ff;
+            if (vis[u]) continue;
+            else vis[u] = 1;
+            for (auto &e : adj[u]) {
+                int v = e.ff;
+                int w = e.ss;
+                if (dis[v] > dis[u] + w) {
+                    dis[v] = dis[u] + w;
+                    pq.push({v, dis[v]});
+                }
+            }
+        }
+        return dis;
+    };
